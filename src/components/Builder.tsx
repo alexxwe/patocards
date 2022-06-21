@@ -23,7 +23,7 @@ export default function Builder() {
 
     return (
         <>
-            <section className='w-96 grid grid-cols-2 gap-2 mb-10'>
+            <section className='w-screen px-4 md:w-96 grid grid-cols-2 gap-2 mb-10'>
                 <input
                     className='bg-zinc-700 p-2 h-10 rounded'
                     type='text'
