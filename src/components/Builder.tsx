@@ -35,6 +35,7 @@ export default function Builder() {
                     <option value='0' className='bg-red-700'>🔥 Fire</option>
                     <option value='1' className='bg-green-700'>☘ Plant</option>
                     <option value='2' className='bg-blue-700'>🌊 Water</option>
+                    <option value='3' className='bg-yellow-500'>⚡ Ray</option>
                 </select>
 
                 <input
