@@ -1,6 +1,20 @@
 import Card from './Card'
 import { useFormInput } from '../hooks/useFormInput'
+import html2canvas from 'html2canvas'
 
+function exportAsImage(element: HTMLElement | null) {
+    if (!element) return
+    return html2canvas(element, {
+        allowTaint: false,
+        useCORS: true,
+    })
+    .then((canvas) => {
+        const a = document.createElement('a')
+        a.href = canvas.toDataURL('image/png')
+        a.download = 'patocard.png'
+        a.click()
+    })
+}
 export default function Builder() {
     const card = {
         title: useFormInput(),
@@ -52,6 +66,7 @@ export default function Builder() {
             </section>
 
             <Card
+                id='printable'
                 type={Number(card.type.inputProp.value)}
                 stats={[
                     Number(card.stats[0].inputProp.value),
@@ -59,7 +74,16 @@ export default function Builder() {
                     Number(card.stats[2].inputProp.value),
                 ]}
                 title={card.title.inputProp.value}
-                image={card.url.inputProp.value} />
+                image={card.url.inputProp.value}
+            />
+
+            <p className='mt-10'>Configure your own cards and <br/> download them as .png images</p>
+            <button
+                className='bg-zinc-700 p-2 h-10 rounded mt-4 hover:bg-gradient-to-br from-purple-900 via-purple-700 to-indigo-700'
+                onClick={() => exportAsImage(document.getElementById('printable'))}
+            >
+                Export as image
+            </button>
         </>
     )
 }
