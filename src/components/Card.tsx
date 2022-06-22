@@ -2,6 +2,7 @@ const types = [
     'from-red-900 via-red-700 to-amber-700',
     'from-green-900 via-green-700 to-emerald-700',
     'from-blue-900 via-blue-700 to-indigo-700',
+    'from-yellow-500 via-yellow 400 to-yellow-300'
 ]
 
 const Card = ({id, type, stats, title, image }: { id?: string, type: number; title: string; stats: number[]; image: string }) => (
