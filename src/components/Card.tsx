@@ -1,9 +1,18 @@
 const types = [
-    'from-red-900 via-red-700 to-amber-700',
+    'from-red-800 via-red-600 to-red-700',
     'from-green-900 via-green-700 to-emerald-700',
     'from-blue-900 via-blue-700 to-indigo-700',
-    'from-yellow-500 via-yellow 400 to-yellow-300'
+    'from-amber-500 via-yellow-400 to-amber-500',
+    'from-stone-800 via-zinc-700 to-stone-800',
 ]
+
+const Stat = ({ icon, isItem, value }: { icon: string, isItem: boolean, value: number }) => {
+    return (
+        <span>
+            <i className={`${icon} pr-1`}></i> {isItem && value ? '+' : ''} {value}
+        </span>
+    )
+}
 
 const Card = ({id, type, stats, title, image }: { id?: string, type: number; title: string; stats: number[]; image: string }) => (
     <div
@@ -19,22 +28,16 @@ const Card = ({id, type, stats, title, image }: { id?: string, type: number; tit
             <section
                 className='rounded h-full'
                 style={{
-                    backgroundImage: `url("${image}")`,
+                    backgroundImage: `url("${image}")`, 
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
             ></section>
 
             <footer className='pt-2 flex justify-around'>
-                <span>
-                    <i className='bi bi-suit-heart-fill pr-2'></i> {stats[0]}
-                </span>
-                <span>
-                    <i className='ra ra-sword pr-2'></i> {stats[1]}
-                </span>
-                <span>
-                    <i className='ra ra-shield pr-2'></i> {stats[2]}
-                </span>
+                <Stat isItem={type === 4} value={stats[0]} icon='bi bi-suit-heart-fill' />
+                <Stat isItem={type === 4} value={stats[1]} icon='ra ra-sword' />
+                <Stat isItem={type === 4} value={stats[2]} icon='ra ra-feather-wing' />
             </footer>
         </article>
     </div>

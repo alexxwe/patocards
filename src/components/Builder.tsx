@@ -50,6 +50,7 @@ export default function Builder() {
                     <option value='1' className='bg-green-700'>☘ Plant</option>
                     <option value='2' className='bg-blue-700'>🌊 Water</option>
                     <option value='3' className='bg-yellow-500'>⚡ Ray</option>
+                    <option value='4' className='bg-zinc-900'>🧷 Item</option>
                 </select>
 
                 <input
@@ -60,9 +61,9 @@ export default function Builder() {
                 />
 
                 <div className='col-span-2 grid grid-cols-3 gap-2'>
-                    <InputNumber idx={0} title={'Live (1-9)'} />
+                    <InputNumber idx={0} title={'Health (1-9)'} />
                     <InputNumber idx={1} title={'Attack (1-9)'} />
-                    <InputNumber idx={2} title={'Defense (1-9)'} />
+                    <InputNumber idx={2} title={'Speed (1-9)'} />
                 </div>
             </section>
 
