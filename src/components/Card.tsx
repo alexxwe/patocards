@@ -5,8 +5,9 @@ const types = [
     'from-yellow-500 via-yellow 400 to-yellow-300'
 ]
 
-const Card = ({ type, stats, title, image }: { type: number; title: string; stats: number[]; image: string }) => (
+const Card = ({id, type, stats, title, image }: { id?: string, type: number; title: string; stats: number[]; image: string }) => (
     <div
+        id={id}
         className={`bg-gradient-to-br ${types[type]} py-2 px-4 rounded`}
         style={{ width: '315px', height: '450px' }}
         title='Click to copy URL image'
